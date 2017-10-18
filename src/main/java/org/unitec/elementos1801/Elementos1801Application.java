@@ -14,10 +14,26 @@ public class Elementos1801Application implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        ///repoMensa.save(new Mensajito(1,"Segundo","Mi primera vez"));
-        Mensajito m= repoMensa.findOne (1);
-        System.out.println(m);
-}
+       //repoMensa.save(new Mensajito("17 de octubre","temblo"));
+        //Mensajito m= repoMensa.findOne (1);
+        System.out.println("vamos abuscar todos");
+
+       for( Mensajito mensa:repoMensa.findAll()){
+           System.out.println(mensa);
+       }
+       
+        System.out.println("vamos a buscar port id");
+        System.out.println(repoMensa.findOne(1));
+        
+          //Actualizar
+          repoMensa.save(new Mensajito(1,"nuevo titulo","nuevo cuerpo"));
+          System.out.println(repoMensa.findOne(1));
+          //busqueda personalizada
+          
+          for(Mensajito mensa:repoMensa.findByTitulo("nuevo titulo"));
+              System.out.println(Mensa);
+    }
+    
     
 }
 
